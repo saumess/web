@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-soft: #f5f8fc;
+  --color-sau-blue: #1f4e9c;
+  --color-navy: #1b2f4b;
+  --color-gold: #c9a227;
+  --color-ink: #111827;
+  --color-muted: #4b5563;
+  --color-line: #dde5f0;
+  --color-veg: #0a7a2f;
+  --color-veg-bg: #ddf3df;
+  --color-nonveg: #b3261e;
+  --color-nonveg-bg: #fbe0dd;
+  --color-notice: #7a4b00;
+  --color-notice-bg: #fff4d6;
+  --font-head: "Merriweather", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+:root { color-scheme: light; }
+
+body {
+  @apply bg-white font-sans text-[17px] leading-relaxed text-ink lg:text-[18px];
+}
+
+h1, h2, h3 { @apply font-head text-navy leading-tight; }
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--color-sau-blue);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--color-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
