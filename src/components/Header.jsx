@@ -29,22 +29,7 @@ export const Header = () => {
             className="flex items-center gap-3 text-left focus-visible:outline-2 focus-visible:outline-[#C9A227] rounded-lg p-1 -ml-1 transition-opacity hover:opacity-95"
             aria-label="SAU Mess Home"
           >
-            <div className="w-10 h-10 rounded-full bg-[#1F4E9C] flex items-center justify-center text-white border-2 border-[#C9A227] shadow-xs shrink-0">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-5 h-5 text-white"
-                aria-hidden="true"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5" />
-                <path d="M2 12l10 5 10-5" />
-              </svg>
-            </div>
+            
 
             <div className="flex flex-col leading-tight">
               <div className="flex items-baseline gap-1.5">

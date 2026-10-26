@@ -23,9 +23,7 @@ export const Footer = () => {
           {/* Column 1: About the Mess */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-full bg-[#1F4E9C] flex items-center justify-center text-white border border-[#C9A227]">
-                <span className="font-bold text-xs tracking-wider">SAU</span>
-              </div>
+              
               <span className="text-xl font-bold tracking-tight text-white">
                 SAU Student Mess
               </span>
