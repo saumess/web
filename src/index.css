@@ -15,16 +15,30 @@
   --color-notice: #7a4b00;
   --color-notice-bg: #fff4d6;
   --font-head: "Merriweather", Georgia, serif;
+  --font-serif: "Merriweather", Georgia, serif;
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Square corners everywhere */
+  --radius-xs: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+  --radius-4xl: 0;
 }
 
 :root { color-scheme: light; }
 
-body {
-  @apply bg-white font-sans text-[17px] leading-relaxed text-ink lg:text-[18px];
+@layer base {
+  body {
+    @apply bg-white font-sans text-[17px] leading-relaxed text-ink lg:text-[18px];
+  }
+  h1, h2, h3 {
+    @apply font-head text-navy leading-tight;
+  }
 }
-
-h1, h2, h3 { @apply font-head text-navy leading-tight; }
 
 a:focus-visible, button:focus-visible {
   outline: 3px solid var(--color-sau-blue);
