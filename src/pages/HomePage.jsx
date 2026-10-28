@@ -11,12 +11,21 @@ import {
   Mail,
   AlertCircle,
   FileText,
+  Star,
 } from 'lucide-react';
 import { WEEKLY_MENU, NOTICES } from '../data/mockData';
 import { DietBadge } from '../components/DietBadge';
 import { HeroSlider } from '../components/HeroSlider';
 
 const wrap = 'max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8';
+
+// Special Dinner button in the hero. It is hidden automatically after the date below.
+// To reuse it next month: change the label and the date.
+const SPECIAL_DINNER = {
+  label: 'Special Dinner · 31 Oct',
+  to: '/special-dinner',
+  showUntil: new Date(2026, 9, 31, 23, 59, 59),
+};
 
 // Hero slides. The file names must match the files in public/hero/ exactly.
 // position moves the focus of the photo, e.g. 'center top', 'center 30%', 'left center'.
@@ -33,8 +42,8 @@ const tiles = [
   { to: '/timings-and-rates', icon: Clock, title: 'Timings & Rates', sub: 'Plans & timings', img: '/tiles/timings.jpg' },
   { to: '/mess-card', icon: CreditCard, title: 'Mess Card', sub: 'Testing & renewal', img: '/tiles/card.jpg' },
   { to: '/rules-and-faq', icon: FileText, title: 'Rules & Conduct', sub: 'Code & policies', img: '/tiles/rules.jpg' },
-  { to: '/feedback?form=mess_off', icon: CalendarOff, title: 'Leave Adjustment', sub: '5+ days absence', img: '/tiles/leave.jpg' },
-  { to: '/feedback?form=guest_meal', icon: UserPlus, title: 'Guest Meal', sub: '₹50/₹70/₹80 rates', img: '/tiles/guest.jpg' },
+  { to: '/rules-and-faq#mess-off', icon: CalendarOff, title: 'Leave Adjustment', sub: '5+ days absence', img: '/tiles/leave.jpg' },
+  { to: '/timings-and-rates#guest-meals', icon: UserPlus, title: 'Guest Meal', sub: 'Breakfast ₹50, others ₹70/₹80', img: '/tiles/guest.jpg' },
 ];
 
 const SectionTitle = ({ eyebrow, title, intro }) => (
@@ -71,6 +80,8 @@ export const HomePage = () => {
     }
   }, []);
 
+  const showSpecialDinner = useMemo(() => new Date() <= SPECIAL_DINNER.showUntil, []);
+
   const latestNotices = NOTICES.slice(0, 3);
 
   return (
@@ -85,12 +96,24 @@ export const HomePage = () => {
           Fresh. Flavourful. Bruin Fueled.
         </p>
 
-        <a
-          href="#today"
-          className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-[#1F4E9C] bg-white hover:bg-[#F5F8FC] transition-colors min-h-[48px]"
-        >
-          See today's menu
-        </a>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="#today"
+            className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-[#1F4E9C] bg-white hover:bg-[#F5F8FC] transition-colors min-h-[48px]"
+          >
+            See today's menu
+          </a>
+
+          {showSpecialDinner && (
+            <Link
+              to={SPECIAL_DINNER.to}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold text-white border-2 border-white hover:bg-white/10 transition-colors min-h-[48px]"
+            >
+              <Star className="w-4 h-4 text-[#C9A227]" aria-hidden="true" />
+              <span>{SPECIAL_DINNER.label}</span>
+            </Link>
+          )}
+        </div>
       </HeroSlider>
 
       {/* 2. Floating photo tiles overlapping the hero */}
@@ -249,7 +272,7 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* 5. New Mess Card in 3 Steps */}
+      {/* 5. New Mess Card in 3 Steps
       <section className={`${wrap} py-12 sm:py-16`}>
         <div className="text-center mb-2">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-[#FFF4D6] text-[#7A4B00] border border-[#F4DB9B]">
@@ -308,7 +331,7 @@ export const HomePage = () => {
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
         </div>
-      </section>
+      </section> */}
 
       {/* 6. From the Committee */}
       <section className={`${wrap} pb-4`}>

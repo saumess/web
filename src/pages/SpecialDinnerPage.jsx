@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  Ghost,
   CalendarClock,
   CalendarX,
   Utensils,
@@ -16,7 +15,7 @@ const wrap = 'max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8';
 
 // ---- Edit these ----
 // Paste the Google Form link here (the normal "viewform" link from the Send button).
-const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScffB0p8-FiQTyQxSmiqMqLLpek4MhCCHboDY2Ryvpa_c3Q7w/viewform?usp=dialog;"
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScffB0p8-FiQTyQxSmiqMqLLpek4MhCCHboDY2Ryvpa_c3Q7w/viewform?usp=dialog;";
 
 // Dates (year, month 0-11, day, hour, minute). Month 9 = October.
 const FORM_DEADLINE = new Date(2026, 9, 29, 23, 59, 59); // 29 Oct, 11:59 PM
@@ -50,8 +49,8 @@ const toEmbedUrl = (url) => `${url.split('?')[0]}?embedded=true`;
 
 const SectionHeading = ({ id, title, intro }) => (
   <div id={id} className="scroll-mt-24 mb-8">
-    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#2A1B3D]">{title}</h2>
-    <div className="mt-3 h-[3px] w-14 bg-[#E8590C]" aria-hidden="true" />
+    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1B2F4B]">{title}</h2>
+    <div className="mt-3 h-[3px] w-14 bg-[#C9A227]" aria-hidden="true" />
     {intro && <p className="mt-3 text-sm sm:text-base text-[#4B5563] max-w-2xl">{intro}</p>}
   </div>
 );
@@ -59,8 +58,7 @@ const SectionHeading = ({ id, title, intro }) => (
 export const SpecialDinnerPage = () => {
   const [now] = useState(() => new Date());
 
-  const status =
-    now <= FORM_DEADLINE ? 'open' : now <= DINNER_END ? 'closed' : 'ended';
+  const status = now <= FORM_DEADLINE ? 'open' : now <= DINNER_END ? 'closed' : 'ended';
 
   const statusLabel = {
     open: 'Registration open until 29 October, 11:59 PM',
@@ -70,68 +68,47 @@ export const SpecialDinnerPage = () => {
 
   return (
     <div>
-      {/* Hero */}
-      <section
-        className="relative overflow-hidden text-white"
-        style={{
-          backgroundImage:
-            'linear-gradient(to bottom, rgba(42,27,61,0.80), rgba(42,27,61,0.92)), url(/special/halloween.jpg), linear-gradient(135deg, #2A1B3D 0%, #1B2F4B 100%)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <span
-          className="absolute -left-2 top-4 text-6xl sm:text-8xl opacity-20 select-none"
-          aria-hidden="true"
-        >
-          🎃
-        </span>
-        <span
-          className="absolute -right-2 bottom-2 text-6xl sm:text-8xl opacity-20 select-none"
-          aria-hidden="true"
-        >
-          👻
-        </span>
-
-        <div className={`${wrap} relative py-14 sm:py-20 text-center`}>
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest bg-[#E8590C] text-white mb-5">
-            <Ghost className="w-4 h-4" aria-hidden="true" />
+      {/* Page header */}
+      <section className="bg-[#F5F8FC] border-b border-[#DDE5F0]">
+        <div className={`${wrap} py-12 sm:py-16 text-center`}>
+          <span className="block text-xs font-semibold uppercase tracking-widest text-[#1F4E9C] mb-2">
             Monthly Special Dinner
           </span>
-
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
-            Halloween Special Dinner
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#1B2F4B]">
+            Special Dinner
           </h1>
+          <div className="mx-auto mt-4 h-[3px] w-14 bg-[#C9A227]" aria-hidden="true" />
 
-          <p className="mt-4 text-lg sm:text-2xl font-serif text-white/95">
+          <p className="mt-4 text-lg sm:text-xl font-serif text-[#1B2F4B]">
             Saturday, 31 October 2026
           </p>
 
-          <div className="mx-auto my-6 h-[3px] w-20 bg-[#E8590C]" aria-hidden="true" />
-
-          <p className="max-w-2xl mx-auto text-base sm:text-lg text-white/90 leading-relaxed">
-            Dear Campus Janta! The spookiest night of the year is here, and so is our
-            monthly Special Dinner. Halloween meets our favourite campus tradition.
+          <p className="mt-3 max-w-2xl mx-auto text-base sm:text-lg text-[#4B5563] leading-relaxed">
+            Dear Campus Janta! Our monthly Special Dinner is here. Please read the
+            instructions below carefully before you fill in the form.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             {status === 'open' && (
               <a
                 href="#register"
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-[#E8590C] hover:bg-[#C2410C] border-2 border-[#E8590C] hover:border-[#C2410C] transition-colors min-h-[48px]"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-[#1F4E9C] hover:bg-[#163b78] transition-colors min-h-[48px]"
               >
                 Fill in the form
               </a>
             )}
             <a
               href="#rules"
-              className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white border-2 border-white hover:bg-white/10 transition-colors min-h-[48px]"
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-[#1F4E9C] bg-white border-2 border-[#1F4E9C] hover:bg-[#F5F8FC] transition-colors min-h-[48px]"
             >
               Read the instructions
             </a>
           </div>
 
-          <p className="mt-6 text-sm font-semibold text-white" role="status">
+          <p
+            className="mt-6 inline-block px-4 py-2 text-sm font-semibold text-[#1B2F4B] bg-white border border-[#DDE5F0]"
+            role="status"
+          >
             {statusLabel}
           </p>
         </div>
@@ -139,47 +116,43 @@ export const SpecialDinnerPage = () => {
 
       {/* Key dates */}
       <section className={`${wrap} pt-12 sm:pt-16`}>
-        <SectionHeading
-          id="dates"
-          title="Important dates"
-          intro="Please read the instructions below carefully before you fill in the form."
-        />
+        <SectionHeading id="dates" title="Important dates" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <article className="bg-white border border-[#DDE5F0] border-t-[3px] border-t-[#E8590C] p-6 shadow-xs">
-            <div className="w-12 h-12 bg-[#FFF1E8] border border-[#F7D4BC] text-[#C2410C] flex items-center justify-center mb-4">
+          <article className="bg-white border border-[#DDE5F0] border-t-[3px] border-t-[#C9A227] p-6 shadow-xs">
+            <div className="w-12 h-12 bg-[#F5F8FC] border border-[#DDE5F0] text-[#1F4E9C] flex items-center justify-center mb-4">
               <CalendarClock className="w-6 h-6" aria-hidden="true" />
             </div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#C2410C] mb-1">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1F4E9C] mb-1">
               29 October
             </p>
-            <h3 className="text-lg font-bold text-[#2A1B3D] mb-1">Form closes</h3>
+            <h3 className="text-lg font-bold text-[#1B2F4B] mb-1">Form closes</h3>
             <p className="text-sm text-[#4B5563]">
               Last date to submit the Google Form: 29 October, 11:59 PM.
             </p>
           </article>
 
-          <article className="bg-white border border-[#DDE5F0] border-t-[3px] border-t-[#E8590C] p-6 shadow-xs">
-            <div className="w-12 h-12 bg-[#FFF1E8] border border-[#F7D4BC] text-[#C2410C] flex items-center justify-center mb-4">
+          <article className="bg-white border border-[#DDE5F0] border-t-[3px] border-t-[#C9A227] p-6 shadow-xs">
+            <div className="w-12 h-12 bg-[#F5F8FC] border border-[#DDE5F0] text-[#1F4E9C] flex items-center justify-center mb-4">
               <CalendarX className="w-6 h-6" aria-hidden="true" />
             </div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#C2410C] mb-1">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1F4E9C] mb-1">
               30 October
             </p>
-            <h3 className="text-lg font-bold text-[#2A1B3D] mb-1">Last day to cancel</h3>
+            <h3 className="text-lg font-bold text-[#1B2F4B] mb-1">Last day to cancel</h3>
             <p className="text-sm text-[#4B5563]">
               Changed your plans? Tell the Mess Manager or email mess@sau.int by this date.
             </p>
           </article>
 
-          <article className="bg-white border border-[#DDE5F0] border-t-[3px] border-t-[#E8590C] p-6 shadow-xs">
-            <div className="w-12 h-12 bg-[#FFF1E8] border border-[#F7D4BC] text-[#C2410C] flex items-center justify-center mb-4">
+          <article className="bg-white border border-[#DDE5F0] border-t-[3px] border-t-[#C9A227] p-6 shadow-xs">
+            <div className="w-12 h-12 bg-[#F5F8FC] border border-[#DDE5F0] text-[#1F4E9C] flex items-center justify-center mb-4">
               <Utensils className="w-6 h-6" aria-hidden="true" />
             </div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#C2410C] mb-1">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#1F4E9C] mb-1">
               31 October
             </p>
-            <h3 className="text-lg font-bold text-[#2A1B3D] mb-1">Dinner and payment</h3>
+            <h3 className="text-lg font-bold text-[#1B2F4B] mb-1">Dinner and payment</h3>
             <p className="text-sm text-[#4B5563]">
               Payment must be made on the day of the special dinner.
             </p>
@@ -195,7 +168,7 @@ export const SpecialDinnerPage = () => {
           <table className="w-full min-w-[520px] border-collapse text-left text-[15px]">
             <caption className="sr-only">Special dinner pricing</caption>
             <thead>
-              <tr className="bg-[#2A1B3D] text-white">
+              <tr className="bg-[#1F4E9C] text-white">
                 <th scope="col" className="p-4 font-semibold">Food</th>
                 <th scope="col" className="p-4 font-semibold">With a valid mess card</th>
                 <th scope="col" className="p-4 font-semibold">Without a mess card</th>
@@ -257,8 +230,8 @@ export const SpecialDinnerPage = () => {
             </div>
           </div>
 
-          <div className="border border-[#DDE5F0] border-t-[3px] border-t-[#E8590C] bg-white p-5 sm:p-6 shadow-xs">
-            <h3 className="text-lg font-bold text-[#2A1B3D] mb-2">Changed your plans?</h3>
+          <div className="border border-[#DDE5F0] border-t-[3px] border-t-[#C9A227] bg-white p-5 sm:p-6 shadow-xs">
+            <h3 className="text-lg font-bold text-[#1B2F4B] mb-2">Changed your plans?</h3>
             <p className="text-[15px] text-[#4B5563] leading-relaxed mb-3">
               If you filled in the form but decide not to come, tell the Mess Manager in
               person or email{' '}
@@ -287,7 +260,7 @@ export const SpecialDinnerPage = () => {
             <div className="border border-[#DDE5F0] bg-white">
               <iframe
                 src={toEmbedUrl(FORM_URL)}
-                title="Halloween Special Dinner registration form"
+                title="Special Dinner registration form"
                 className="block w-full h-[1400px] sm:h-[1200px] border-0"
                 loading="lazy"
               >
@@ -300,7 +273,7 @@ export const SpecialDinnerPage = () => {
                 href={FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3 text-base font-semibold text-white bg-[#E8590C] hover:bg-[#C2410C] transition-colors min-h-[48px]"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 text-base font-semibold text-white bg-[#1F4E9C] hover:bg-[#163b78] transition-colors min-h-[48px]"
               >
                 <span>Open the form in a new tab</span>
                 <ExternalLink className="w-4 h-4" aria-hidden="true" />
@@ -344,18 +317,20 @@ export const SpecialDinnerPage = () => {
 
       {/* Closing */}
       <section className={`${wrap} pt-12 sm:pt-16`}>
-        <div className="bg-[#2A1B3D] text-white border-b-[3px] border-[#E8590C] p-6 sm:p-10 text-center">
-          <p className="text-3xl mb-3" aria-hidden="true">🎃 👻 🎃</p>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-3">
-            So, Campus Janta, are you ready?
-          </h2>
-          <p className="max-w-2xl mx-auto text-base text-white/90 leading-relaxed">
-            Spooky season, special dinner and campus vibes. Let’s make this Halloween dinner
-            memorable while keeping fair practices and cooperation from everyone.
-          </p>
+        <div className="border border-[#DDE5F0] border-l-[5px] border-l-[#1F4E9C] bg-white p-6 sm:p-8 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="max-w-2xl">
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#1B2F4B] mb-2">
+              So, Campus Janta, are you ready?
+            </h2>
+            <p className="text-[15px] text-[#4B5563] leading-relaxed">
+              Let’s make this dinner memorable while keeping fair practices and
+              cooperation from everyone.
+            </p>
+          </div>
+
           <a
             href="mailto:mess@sau.int"
-            className="mt-6 inline-flex items-center justify-center gap-2 px-7 py-3 text-base font-semibold text-white border-2 border-white hover:bg-white/10 transition-colors min-h-[48px]"
+            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-[#1F4E9C] bg-[#F5F8FC] border border-[#1F4E9C] hover:bg-[#EBF2FC] transition-colors min-h-[48px] shrink-0"
           >
             <Mail className="w-4 h-4" aria-hidden="true" />
             <span>mess@sau.int</span>
