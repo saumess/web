@@ -3,7 +3,12 @@ import Layout from './components/Layout';
 import ComingSoon from './pages/ComingSoon';
 import { HomePage } from './pages/HomePage';
 import { MenuPage } from './pages/MenuPage';
+import { TimingsRatesPage } from './pages/TimingsRatesPage';
+import { RulesFaqPage } from './pages/RulesFaqPage';
+import { NoticesPage } from './pages/NoticesPage';
 import { FeedbackPage } from './pages/FeedbackPage';
+import { CommitteePage } from './pages/CommitteePage';
+import { SpecialDinnerPage } from './pages/SpecialDinnerPage';
 
 const router = createBrowserRouter([
   {
@@ -11,16 +16,15 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <HomePage /> },
       { path: '/menu', element: <MenuPage /> },
+      { path: '/timings-and-rates', element: <TimingsRatesPage /> },
+      { path: '/rules-and-faq', element: <RulesFaqPage /> },
+      { path: '/notices', element: <NoticesPage /> },
       { path: '/feedback', element: <FeedbackPage /> },
-
-      // Built next: swap this one for the real page
-      { path: '/rules-and-faq', element: <ComingSoon title="Rules and FAQ" /> },
+      { path: '/committee', element: <CommitteePage /> },
+      { path: '/special-dinner', element: <SpecialDinnerPage /> },
 
       // Coming soon
-      { path: '/timings-and-rates', element: <ComingSoon title="Timings and Rates" /> },
       { path: '/mess-card', element: <ComingSoon title="Mess Card" /> },
-      { path: '/notices', element: <ComingSoon title="Notices" /> },
-      { path: '/committee', element: <ComingSoon title="Mess Committee" /> },
       { path: '/gallery', element: <ComingSoon title="Gallery" /> },
       { path: '/about', element: <ComingSoon title="About" /> },
       { path: '*', element: <ComingSoon title="Page not found" /> },

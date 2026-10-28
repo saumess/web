@@ -1,5 +1,5 @@
 // October 2026 official menu. Dates and "today" follow the real clock.
-
+export { NOTICES } from './notices';
 const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -95,29 +95,3 @@ const buildWeek = () => {
 export const WEEKLY_MENU = buildWeek();
 
 // Sample notices. Replace with real ones. Newest first.
-export const NOTICES = [
-  {
-    id: '1',
-    date: '25 Oct 2026',
-    category: 'Menu',
-    title: 'October menu is now live',
-    summary: 'The official October menu approved by the Mess Committee is on the Menu page.',
-    isImportant: false,
-  },
-  {
-    id: '2',
-    date: '24 Oct 2026',
-    category: 'General',
-    title: 'New mess card system is in testing',
-    summary: 'The QR card is being tested at the counters. Keep using your current process until told otherwise.',
-    isImportant: true,
-  },
-  {
-    id: '3',
-    date: '22 Oct 2026',
-    category: 'Menu',
-    title: 'Ghee Roti is optional at dinner',
-    summary: 'Ghee Roti is available at dinner on request.',
-    isImportant: false,
-  },
-];
