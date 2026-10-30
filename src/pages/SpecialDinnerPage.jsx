@@ -18,7 +18,7 @@ const wrap = 'max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8';
 const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScffB0p8-FiQTyQxSmiqMqLLpek4MhCCHboDY2Ryvpa_c3Q7w/viewform?usp=dialog;";
 
 // Dates (year, month 0-11, day, hour, minute). Month 9 = October.
-const FORM_DEADLINE = new Date(2026, 9, 29, 23, 59, 59); // 29 Oct, 11:59 PM
+const FORM_DEADLINE = new Date(2026, 9, 30, 23, 59, 59); // 29 Oct, 11:59 PM
 const DINNER_END = new Date(2026, 9, 31, 23, 59, 59); // 31 Oct
 
 const PRICING = [
