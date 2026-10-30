@@ -61,7 +61,7 @@ export const SpecialDinnerPage = () => {
   const status = now <= FORM_DEADLINE ? 'open' : now <= DINNER_END ? 'closed' : 'ended';
 
   const statusLabel = {
-    open: 'Registration open until 29 October, 11:59 PM',
+    open: 'Registration open until 30 October, 11:59 PM',
     closed: 'Registration is closed',
     ended: 'This event has ended',
   }[status];
@@ -128,7 +128,7 @@ export const SpecialDinnerPage = () => {
             </p>
             <h3 className="text-lg font-bold text-[#1B2F4B] mb-1">Form closes</h3>
             <p className="text-sm text-[#4B5563]">
-              Last date to submit the Google Form: 29 October, 11:59 PM.
+              Last date to submit the Goojustify-ce 30 october, 11:59 PM.
             </p>
           </article>
 
