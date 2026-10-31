@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Clock, Printer, CalendarDays, Table, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Clock, Printer, CalendarDays, Table, Sparkles, Star, ArrowRight } from 'lucide-react';
 import { WEEKLY_MENU } from '../data/mockData';
 import { DietBadge } from '../components/DietBadge';
+import { SpecialDinnerTag, SpecialDinnerNote } from '../components/SpecialDinnerBits';
 
 const wrap = 'max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8';
 
@@ -57,6 +59,9 @@ export const MenuPage = () => {
     m.dishes.some((d) => d.name.startsWith('Chinese Night'))
   );
 
+  // Monthly Special Dinner on the chosen day
+  const specialDinner = day.meals.find((m) => m.special);
+
   return (
     <div>
       {/* Page header */}
@@ -69,7 +74,7 @@ export const MenuPage = () => {
             Weekly Menu
           </h1>
           <div className="mx-auto mt-4 h-[3px] w-14 bg-[#C9A227]" aria-hidden="true" />
-          <p className="mt-4 text-sm text-[#4B5563]">Last updated: October 2026</p>
+          <p className="mt-4 text-sm text-[#4B5563]">Last updated: November 2026</p>
         </div>
       </section>
 
@@ -123,6 +128,7 @@ export const MenuPage = () => {
           >
             {WEEKLY_MENU.map((d, i) => {
               const active = i === selected;
+              const hasSpecial = d.meals.some((m) => m.special);
               return (
                 <button
                   key={d.day}
@@ -146,6 +152,16 @@ export const MenuPage = () => {
                       Today
                     </span>
                   )}
+                  {hasSpecial && !d.isToday && (
+                    <span
+                      className={`inline-flex items-center gap-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                        active ? 'text-white' : 'text-[#7A4B00]'
+                      }`}
+                    >
+                      <Star className="w-2.5 h-2.5" aria-hidden="true" />
+                      Special
+                    </span>
+                  )}
                 </button>
               );
             })}
@@ -154,6 +170,22 @@ export const MenuPage = () => {
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1B2F4B] mb-6">
             {day.day}, {day.dateStr}
           </h2>
+
+          {specialDinner && (
+            <div className="flex flex-wrap items-center justify-between gap-3 border border-[#C9A227] border-l-[5px] bg-white px-5 py-4 mb-6">
+              <p className="flex items-center gap-3 text-sm sm:text-base font-semibold text-[#1B2F4B]">
+                <Star className="w-5 h-5 text-[#7A4B00] shrink-0" aria-hidden="true" />
+                <span>Special Dinner on {day.dateStr}</span>
+              </p>
+              <Link
+                to="/special-dinner"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-[#1F4E9C] hover:underline"
+              >
+                <span>Details, pricing and registration</span>
+                <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+              </Link>
+            </div>
+          )}
 
           {specialMeal && (
             <div className="flex items-center gap-3 border border-[#C9A227] border-l-[5px] bg-white px-5 py-4 mb-6">
@@ -173,6 +205,11 @@ export const MenuPage = () => {
                     <Clock className="w-3.5 h-3.5" aria-hidden="true" />
                     <span>{meal.time}</span>
                   </div>
+                  {meal.special && (
+                    <div className="mt-2">
+                      <SpecialDinnerTag />
+                    </div>
+                  )}
                 </div>
 
                 <ul className="space-y-3 flex-1">
@@ -201,6 +238,8 @@ export const MenuPage = () => {
                     );
                   })}
                 </ul>
+
+                {meal.special && <SpecialDinnerNote empty={meal.dishes.length === 0} />}
 
                 {meal.id === 'dinner' && (
                   <div className="mt-4 pt-2.5 border-t border-[#DDE5F0] text-xs text-[#4B5563]">
@@ -271,32 +310,44 @@ export const MenuPage = () => {
                       </span>
                     </th>
 
-                    {WEEKLY_MENU.map((d) => (
-                      <td
-                        key={d.day}
-                        className="border border-[#DDE5F0] print:border-black p-3 align-top"
-                      >
-                        <ul className="space-y-1.5">
-                          {d.meals[mealIdx].dishes.map((raw, idx) => {
-                            const dish = parseDish(raw);
-                            return (
-                              <li key={idx} className="flex items-start gap-1.5 leading-snug">
-                                <Mark isVeg={dish.isVeg} />
-                                <span>
-                                  {dish.isOr && <span className="italic text-[#4B5563] print:text-black mr-1">or</span>}
-                                  {dish.name}
-                                  {dish.alternates && (
-                                    <span className="block text-[11px] text-[#4B5563] print:text-black">
-                                      (alternates weekly)
-                                    </span>
-                                  )}
-                                </span>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </td>
-                    ))}
+                    {WEEKLY_MENU.map((d) => {
+                      const cellMeal = d.meals[mealIdx];
+                      return (
+                        <td
+                          key={d.day}
+                          className="border border-[#DDE5F0] print:border-black p-3 align-top"
+                        >
+                          {cellMeal.special && (
+                            <p className="mb-1.5 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wide text-[#7A4B00] print:text-black">
+                              <Star className="w-3 h-3" aria-hidden="true" />
+                              Special Dinner
+                            </p>
+                          )}
+                          {cellMeal.special && cellMeal.dishes.length === 0 && (
+                            <p className="text-[#4B5563] print:text-black">Menu to be announced</p>
+                          )}
+                          <ul className="space-y-1.5">
+                            {cellMeal.dishes.map((raw, idx) => {
+                              const dish = parseDish(raw);
+                              return (
+                                <li key={idx} className="flex items-start gap-1.5 leading-snug">
+                                  <Mark isVeg={dish.isVeg} />
+                                  <span>
+                                    {dish.isOr && <span className="italic text-[#4B5563] print:text-black mr-1">or</span>}
+                                    {dish.name}
+                                    {dish.alternates && (
+                                      <span className="block text-[11px] text-[#4B5563] print:text-black">
+                                        (alternates weekly)
+                                      </span>
+                                    )}
+                                  </span>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>

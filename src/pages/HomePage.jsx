@@ -16,6 +16,7 @@ import {
 import { WEEKLY_MENU, NOTICES } from '../data/mockData';
 import { DietBadge } from '../components/DietBadge';
 import { HeroSlider } from '../components/HeroSlider';
+import { SpecialDinnerTag, SpecialDinnerNote } from '../components/SpecialDinnerBits';
 
 const wrap = 'max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8';
 
@@ -32,7 +33,7 @@ const SPECIAL_DINNER = {
 const heroSlides = [
   { src: '/hero/1.jpeg', position: 'center' },
   { src: '/hero/2.jpg', position: 'center' },
-  
+  { src: '/hero/3.jpg', position: 'center' },
 ];
 
 // Photo tiles on the card that overlaps the hero.
@@ -59,7 +60,7 @@ const SectionTitle = ({ eyebrow, title, intro }) => (
   </div>
 );
 
-export const HomePage = () => {
+export const Home = () => {
   const todayMenu = useMemo(() => {
     return WEEKLY_MENU.find((d) => d.isToday) || WEEKLY_MENU[6];
   }, []);
@@ -173,6 +174,11 @@ export const HomePage = () => {
                       <Clock className="w-3.5 h-3.5 text-[#1F4E9C]" aria-hidden="true" />
                       <span>{meal.time}</span>
                     </div>
+                    {meal.special && (
+                      <div className="mt-2">
+                        <SpecialDinnerTag />
+                      </div>
+                    )}
                   </div>
 
                   {isHighlight && (
@@ -193,6 +199,8 @@ export const HomePage = () => {
                     </li>
                   ))}
                 </ul>
+
+                {meal.special && <SpecialDinnerNote empty={meal.dishes.length === 0} />}
 
                 {meal.id === 'dinner' && (
                   <div className="mt-4 pt-2.5 border-t border-[#DDE5F0] text-xs text-[#4B5563]">
@@ -272,7 +280,7 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* 5. New Mess Card in 3 Steps
+      {/* 5. New Mess Card in 3 Steps */}
       <section className={`${wrap} py-12 sm:py-16`}>
         <div className="text-center mb-2">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-[#FFF4D6] text-[#7A4B00] border border-[#F4DB9B]">
@@ -331,7 +339,7 @@ export const HomePage = () => {
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
         </div>
-      </section> */}
+      </section>
 
       {/* 6. From the Committee */}
       <section className={`${wrap} pb-4`}>

@@ -45,12 +45,12 @@ export const Header = () => {
       {/* Brand row: sticky on mobile, scrolls away on desktop */}
       <div className="sticky top-0 z-50 lg:static bg-white border-b-[3px] border-[#C9A227] lg:border-b-0">
         <div className={wrap}>
-          <div className="flex items-center justify-between h-16 lg:h-[80px]">
-            {/* SAU logo | SAU Mess */}
+          <div className="grid grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center gap-4 h-16 lg:h-[80px]">
+            {/* Left: SAU logo | SAU Mess */}
             <Link
               to="/"
               onClick={closeMenu}
-              className="flex items-center gap-3 sm:gap-4 transition-opacity hover:opacity-95"
+              className="justify-self-start flex items-center gap-3 sm:gap-4 transition-opacity hover:opacity-95"
               aria-label="SAU Mess Home"
             >
               <img
@@ -65,8 +65,18 @@ export const Header = () => {
               </span>
             </Link>
 
-            {/* SAARC logo + mobile menu button */}
-            <div className="flex items-center gap-3">
+            {/* Middle: university name (desktop only) */}
+            <div className="hidden lg:block text-center">
+              <p className="font-head text-xl xl:text-2xl font-bold uppercase tracking-wide text-[#1B2F4B] leading-tight">
+                South Asian University
+              </p>
+              <p className="mt-1 text-[13px] text-[#4B5563] leading-snug">
+                A University Established by SAARC Nations
+              </p>
+            </div>
+
+            {/* Right: SAARC logo + mobile menu button */}
+            <div className="justify-self-end flex items-center gap-3">
               <img
                 src="/saarc-logo.png"
                 alt="SAARC"

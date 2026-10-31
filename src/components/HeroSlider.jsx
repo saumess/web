@@ -53,7 +53,7 @@ export const HeroSlider = ({ slides, children }) => {
       </div>
 
       {/* Navy overlay so the text stays readable */}
-      <div className="absolute inset-0 bg-[#1B2F4B]/65" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[#697991ff]/65" aria-hidden="true" />
 
       {/* Previous / next */}
       {count > 1 && (

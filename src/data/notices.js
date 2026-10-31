@@ -24,6 +24,15 @@ const RAW = [
     // Example of a notice with a link. Replace the url with your real Google Drive link.
     // links: [{ label: 'Download the menu (PDF)', url: 'https://drive.google.com/...' }],
   },
+  {
+  id: '2',
+  isoDate: '2026-10-31',
+  category: 'General',
+  title: 'Contribute Your Photos to the Mess Gallery',
+  summary: 'Students are invited to submit photos of the Mess and Dining Area for the website Gallery page. You can also choose whether to have your name displayed in the photo credits.',
+  important: true,
+  links: [{ label: 'Submit Photos', url: 'https://docs.google.com/forms/d/e/1FAIpQLScfz7sjFsxm7vcIY2waz4svVABMSV-QcBXmJ6nEEJP2tcqviw/viewform?usp=publish-editor' }],
+},
   
   {
     id: '3',
