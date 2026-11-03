@@ -8,7 +8,7 @@ import { RulesFaqPage } from './pages/RulesFaqPage';
 import { NoticesPage } from './pages/NoticesPage';
 import { FeedbackPage } from './pages/FeedbackPage';
 import { CommitteePage } from './pages/CommitteePage';
-import { SpecialDinnerPage } from './pages/SpecialDinnerPage';
+
 import { AboutPage } from './pages/AboutPage';
 
 const router = createBrowserRouter([
@@ -22,7 +22,6 @@ const router = createBrowserRouter([
       { path: '/notices', element: <NoticesPage /> },
       { path: '/feedback', element: <FeedbackPage /> },
       { path: '/committee', element: <CommitteePage /> },
-      { path: '/special-dinner', element: <SpecialDinnerPage /> },
       { path: '/about', element: <AboutPage /> },
 
       // Coming soon

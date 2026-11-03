@@ -109,10 +109,10 @@ export const Footer = () => {
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-6 -mt-2">
         <div className="pt-4 border-t border-[#DDE5F0] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#4B5563]">
           <span>
-            Last updated: <span className="font-medium text-[#1B2F4B]">October 2026</span>
+            Last updated: <span className="font-medium text-[#1B2F4B]">Nov 3, 2026</span>
           </span>
           <span className="text-center sm:text-right">
-            © 2026 South Asian University, New Delhi. An International University established by SAARC.
+            © 2026 SAU MESS. Managed and maintained by the <strong className="text-[#1B2F4B]">SAU Mess Committee</strong>.
           </span>
         </div>
       </div>

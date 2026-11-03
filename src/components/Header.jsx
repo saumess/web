@@ -6,7 +6,7 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/menu', label: 'Menu' },
   { to: '/timings-and-rates', label: 'Timings & Rates' },
-  { to: '/mess-card', label: 'Mess Card' },
+  
   { to: '/rules-and-faq', label: 'Rules & FAQ' },
   { to: '/notices', label: 'Notices' },
   { to: '/feedback', label: 'Feedback' },
