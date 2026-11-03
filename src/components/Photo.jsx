@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { ImageIcon } from 'lucide-react';
+import { getCredit } from '../data/photoCredits';
 
 export const Photo = ({ src, alt, className = '', label = 'Photo coming soon' }) => {
   const [failed, setFailed] = useState(false);
+  const credit = getCredit(src);
 
   if (!src || failed) {
     return (
@@ -18,12 +20,19 @@ export const Photo = ({ src, alt, className = '', label = 'Photo coming soon' })
   }
 
   return (
-    <img
-      src={src}
-      alt={alt}
-      loading="lazy"
-      onError={() => setFailed(true)}
-      className={`object-cover ${className}`}
-    />
+    <div className={`relative overflow-hidden ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onError={() => setFailed(true)}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {credit && (
+        <span className="absolute bottom-0 left-0 max-w-full px-2.5 py-1 text-[11px] leading-tight text-white bg-[#1B2F4B]/85">
+          Photo: {credit}
+        </span>
+      )}
+    </div>
   );
 };

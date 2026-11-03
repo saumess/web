@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { getCredit } from '../data/photoCredits';
 
 // ---- Adjust the hero here ----
 // Hero height on phone / tablet / desktop. Make the numbers bigger or smaller.
@@ -16,6 +17,7 @@ export const HeroSlider = ({ slides, children }) => {
   const count = slides.length;
 
   const go = (i) => setIndex((i + count) % count);
+  const credit = getCredit(slides[index].src);
 
   useEffect(() => {
     if (!AUTOPLAY || paused || count < 2) return;
@@ -53,7 +55,14 @@ export const HeroSlider = ({ slides, children }) => {
       </div>
 
       {/* Navy overlay so the text stays readable */}
-      <div className="absolute inset-0 bg-[#697991ff]/65" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[#1B2F4B]/65" aria-hidden="true" />
+
+      {/* Photo credit for the current slide */}
+      {credit && (
+        <p className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 max-w-[70%] px-2.5 py-1 text-[11px] leading-tight text-white bg-[#1B2F4B]/85">
+          Photo: {credit}
+        </p>
+      )}
 
       {/* Previous / next */}
       {count > 1 && (

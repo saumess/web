@@ -8,7 +8,8 @@ import { RulesFaqPage } from './pages/RulesFaqPage';
 import { NoticesPage } from './pages/NoticesPage';
 import { FeedbackPage } from './pages/FeedbackPage';
 import { CommitteePage } from './pages/CommitteePage';
-
+import { PhotoCreditsPage } from './pages/PhotoCreditsPage';
+import { GalleryPage } from './pages/GalleryPage';
 import { AboutPage } from './pages/AboutPage';
 
 const router = createBrowserRouter([
@@ -23,10 +24,12 @@ const router = createBrowserRouter([
       { path: '/feedback', element: <FeedbackPage /> },
       { path: '/committee', element: <CommitteePage /> },
       { path: '/about', element: <AboutPage /> },
+      { path: '/photo-credits', element: <PhotoCreditsPage /> },
+      { path: '/gallery', element: <GalleryPage /> },
 
       // Coming soon
-      { path: '/mess-card', element: <ComingSoon title="Mess Card" /> },
-      { path: '/gallery', element: <ComingSoon title="Gallery" /> },
+      
+      
       { path: '*', element: <ComingSoon title="Page not found" /> },
     ],
   },

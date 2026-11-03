@@ -12,6 +12,7 @@ const navLinks = [
   { to: '/feedback', label: 'Feedback' },
   { to: '/committee', label: 'Committee' },
   { to: '/gallery', label: 'Gallery' },
+  { to: '/about', label: 'About' },
 ];
 
 const wrap = 'max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8';

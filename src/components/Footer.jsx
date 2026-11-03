@@ -5,7 +5,7 @@ const explore = [
   { to: '/', label: 'Home' },
   { to: '/menu', label: 'Mess Menu' },
   { to: '/timings-and-rates', label: 'Timings & Rates' },
-  
+  { to: '/mess-card', label: 'Mess Card System' },
 ];
 
 const engage = [
@@ -40,7 +40,7 @@ export const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-[#4B5563] leading-relaxed max-w-xs">
-              Fresh. Flavourful. SAUcy Fueled. Serving scholars from the 8 SAARC member states.
+              Fresh. Flavourful. SAUian Fueled. Serving scholars from the 8 SAARC member states.
             </p>
           </div>
 
@@ -88,7 +88,7 @@ export const Footer = () => {
               <p className="leading-relaxed">
                 Contact the <strong className="text-[#1B2F4B]">Mess Manager in Mess 1</strong> for subscriptions, card renewals and packing requests.
               </p>
-              <p className="text-xs">Card renewal window: 1st 2nd and 3rd day of each month.</p>
+              <p className="text-xs">Card renewal window: 1st and 2nd day of each month.</p>
             </div>
           </div>
         </div>
@@ -109,10 +109,15 @@ export const Footer = () => {
       <div className="max-w-[1240px] mx-auto px-5 sm:px-8 pb-6 -mt-2">
         <div className="pt-4 border-t border-[#DDE5F0] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#4B5563]">
           <span>
-            Last updated: <span className="font-medium text-[#1B2F4B]">Nov 3, 2026</span>
+            Last updated: <span className="font-medium text-[#1B2F4B]">November 2026</span>
           </span>
-          <span className="text-center sm:text-right">
-            © 2026 SAU MESS. Managed and maintained by the <strong className="text-[#1B2F4B]">SAU Mess Committee</strong>.
+          <span className="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-center sm:text-right">
+            <Link to="/photo-credits" className="font-semibold text-[#1F4E9C] hover:underline">
+              Photo credits
+            </Link>
+            <span>
+              © 2026 SAU Mess. Developed and maintained by the Mess committee.
+            </span>
           </span>
         </div>
       </div>

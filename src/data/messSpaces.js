@@ -22,7 +22,7 @@ export const MESS_SPACES = [
     status: 'open',
     diet: 'veg',
     closedDays: [],
-    photo: '/about/mess-2.jpg',
+    photo: '/gallery/mess2.jpeg',
     note: 'A fully vegetarian mess.',
   },
   {

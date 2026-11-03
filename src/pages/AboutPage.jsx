@@ -82,7 +82,7 @@ export const AboutPage = () => {
   return (
     <div>
       {/* Page header */}
-      <section className="bg-[#F5F8FC] border-b border-[#DDE5F0]">
+      {/* <section className="bg-[#F5F8FC] border-b border-[#DDE5F0]">
         <div className={`${wrap} py-12 sm:py-16 text-center`}>
           <span className="block text-xs font-semibold uppercase tracking-widest text-[#1F4E9C] mb-2">
             Our story
@@ -95,7 +95,7 @@ export const AboutPage = () => {
             Good food. Fair prices. Run by students.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* Story + photo */}
       <section className={`${wrap} py-12 sm:py-16`}>
@@ -138,7 +138,7 @@ export const AboutPage = () => {
           </div>
 
           <Photo
-            src="/about/dining-hall.jpg"
+            src="/gallery/mess2.jpeg"
             alt="The SAU Mess dining hall"
             className="w-full aspect-[4/3] border border-[#DDE5F0]"
           />
