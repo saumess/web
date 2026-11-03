@@ -94,7 +94,7 @@ export const Home = () => {
         </h1>
 
         <p className="mt-4 mb-9 text-xl sm:text-2xl lg:text-3xl font-serif text-white leading-snug">
-          Fresh. Flavourful. Bruin Fueled.
+          Fresh. Flavourful. SAUcy Fueled.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3">

@@ -5,7 +5,7 @@ const explore = [
   { to: '/', label: 'Home' },
   { to: '/menu', label: 'Mess Menu' },
   { to: '/timings-and-rates', label: 'Timings & Rates' },
-  { to: '/mess-card', label: 'Mess Card System' },
+  
 ];
 
 const engage = [
@@ -40,7 +40,7 @@ export const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-[#4B5563] leading-relaxed max-w-xs">
-              Fresh. Flavourful. Bruin Fueled. Serving scholars from the 8 SAARC member states.
+              Fresh. Flavourful. SAUcy Fueled. Serving scholars from the 8 SAARC member states.
             </p>
           </div>
 
@@ -88,7 +88,7 @@ export const Footer = () => {
               <p className="leading-relaxed">
                 Contact the <strong className="text-[#1B2F4B]">Mess Manager in Mess 1</strong> for subscriptions, card renewals and packing requests.
               </p>
-              <p className="text-xs">Card renewal window: 1st and 2nd day of each month.</p>
+              <p className="text-xs">Card renewal window: 1st 2nd and 3rd day of each month.</p>
             </div>
           </div>
         </div>
