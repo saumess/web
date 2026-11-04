@@ -138,7 +138,7 @@ export const AboutPage = () => {
           </div>
 
           <Photo
-            src="/gallery/mess2.jpeg"
+            src="/gallery/mess1-outside-Md_Shihab_Uddin.jpg"
             alt="The SAU Mess dining hall"
             className="w-full aspect-[4/3] border border-[#DDE5F0]"
           />

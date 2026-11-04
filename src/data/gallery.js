@@ -14,10 +14,14 @@ export const GALLERY_CATEGORIES = ['Dining hall', 'Food', 'Festivals', 'Kitchen'
 export const GALLERY_PHOTOS = [
 { src: '/about/mess-1.png', title: 'Dinner at Mess 1', category: 'Dining hall', by: 'Anuj', date: '2026-11-02' },
 { src: '/gallery/mess2.jpeg', title: 'Mess 2', category: 'Dining hall', by: 'Altamash', date: '2026-11-02' },
-{ src: '/gallery/mess2.jpeg', title: 'Mess 2', category: 'Dining hall', by: 'Altamash', date: '2026-11-02' },
-{ src: '/hero/1.jpeg', title: 'Dinner at Mess 1', category: 'Dining hall', by: 'SAU', date: '2026-11-02' },
-{ src: '/hero/2.jpg', title: 'Dinner at Mess 1', category: 'Dining hall', by: 'SAU', date: '2026-11-02' },
-{ src: '/hero/3.jpg', title: 'Dinner at Mess 1', category: 'Dining hall', by: 'SAU', date: '2026-11-02' },
+{ src: '/hero/1.jpeg', title: 'LS ES', category: 'Dining hall', by: 'SAU', date: '2026-11-02' },
+{ src: '/hero/2.jpg', title: 'HOSTEL', category: 'Dining hall', by: 'SAU', date: '2026-11-02' },
+{ src: '/hero/3.jpg', title: 'Mess 1', category: 'Dining hall', by: 'SAU', date: '2026-11-02' },
+{ src: '/gallery/mess1-Md_Shihab_Uddin.jpg', title: ' Mess 1', category: 'Dining hall', by: 'Shihab, LLM 27', date: '2026-11-02' },
+{ src: '/gallery/mess1-outside-Md_Shihab_Uddin.jpg', title: 'LSES ', category: 'Dining hall', by: 'Shihab, LLM 27', date: '2026-11-02' },
+{ src: '/gallery/mess1-Md_Shihab_Uddin-2.jpg', title: 'Mess 1', category: 'Dining hall', by: 'Shihab, LLM 27', date: '2026-11-02' },
+{ src: '/gallery/mess2-Md_hihab_Uddin.jpg', title: 'Mess 2', category: 'Dining hall', by: 'Shihab, LLM 27', date: '2026-11-02' },
+
 ];
 
 // Paste the Google Form link for photo submissions here (a form with a file upload question).
